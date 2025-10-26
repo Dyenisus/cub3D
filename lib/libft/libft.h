@@ -6,7 +6,7 @@
 /*   By: yesoytur <yesoytur@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 13:28:04 by yesoytur          #+#    #+#             */
-/*   Updated: 2025/10/07 18:50:48 by yesoytur         ###   ########.fr       */
+/*   Updated: 2025/10/26 16:08:13 by yesoytur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include "ft_printf/lib/ft_printf.h"
+# include "get_next_line/get_next_line.h"
 
 typedef struct s_list
 {
