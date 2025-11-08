@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yesoytur <yesoytur@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/26 15:54:49 by yesoytur          #+#    #+#             */
-/*   Updated: 2025/10/31 21:15:02 by yesoytur         ###   ########.fr       */
+/*   Created: 2025/10/31 21:00:19 by yesoytur          #+#    #+#             */
+/*   Updated: 2025/10/31 21:08:25 by yesoytur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3D.h"
+#ifndef STRUCTS_H
+# define STRUCTS_H
 
-int	main(int ac, char **av)
+typedef struct s_map
 {
+	char	*no;
+	char	*so;
+	char	*we;
+	char	*ea;
+	char	*f;
+	char	*c;
+	int		f_color[3];
+	int		c_color[3];
 	char	**map;
-	// Check ac and av
-	// Check av string
-	init_checks(ac, av);
-	// Check map file
-	map = parse_map(ac, av);
-	// Init game loop
-	init_asset();
-	init_game();
-	// Free all and close
-	free_all_ext();
-}
+}	t_map;
+
+
+
+#endif

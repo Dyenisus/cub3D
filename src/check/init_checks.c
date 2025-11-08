@@ -1,16 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checks.c                                           :+:      :+:    :+:   */
+/*   init_checks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yesoytur <yesoytur@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 16:00:53 by yesoytur          #+#    #+#             */
-/*   Updated: 2025/10/26 18:33:53 by yesoytur         ###   ########.fr       */
+/*   Updated: 2025/10/31 21:19:37 by yesoytur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3D.h"
+
+static void	is_file_readable(const char *map_str);
+
+void	init_checks(int	ac, char **av)
+{
+	char 	*map_str;
+	size_t	len;
+	char	*exten;
+
+	map_str = av[1];
+	if (ac != 2 || !*map_str)
+		print_err_ext("Invalid arguments");
+	len = ft_strlen(map_str);
+	if (len <= 4)
+		print_use_ext("Invalid file extension");
+	exten = map_str + (len - 4);
+	if (ft_strncmp(exten, ".cub", 4))
+		print_use_ext("Invalid file extension");
+	if (!ft_strncmp(exten - 1, "/.cub", 5))
+		print_use_ext("Invalid secret file");
+	is_file_readable(map_str);
+}
 
 static void	is_file_readable(const char *map_str)
 {
@@ -33,22 +55,7 @@ static void	is_file_readable(const char *map_str)
 		print_err_ext("Empty map");
 }
 
-void	init_checks(int	ac, char **av)
+static void	asset_checks()
 {
-	char 	*map_str;
-	size_t	len;
-	char	*exten;
-
-	map_str = av[1];
-	if (ac != 2 || !*map_str)
-		print_err_ext("Invalid arguments");
-	len = ft_strlen(map_str);
-	if (len <= 4)
-		print_use_ext("Invalid file extension");
-	exten = map_str + (len - 4);
-	if (ft_strncmp(exten, ".cub", 4))
-		print_use_ext("Invalid file extension");
-	if (!ft_strncmp(exten - 1, "/.cub", 5))
-		print_use_ext("Invalid secret file");
-	is_file_readable(map_str);
+	;
 }
