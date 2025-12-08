@@ -6,7 +6,7 @@
 /*   By: yesoytur <yesoytur@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 15:46:34 by yesoytur          #+#    #+#             */
-/*   Updated: 2025/10/26 18:20:04 by yesoytur         ###   ########.fr       */
+/*   Updated: 2025/12/08 11:40:10 by yesoytur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,16 @@
 # include <sys/time.h>
 # include <math.h>
 # include <errno.h>
+# include "structs.h"
 # include "../lib/libft/libft.h"
 # include "../lib/minilibx-linux/mlx.h"
 # include "../lib/minilibx-linux/mlx_int.h"
 
-void	init_checks(int ac, char **av);
+void	initial_checks(int ac, char **av);
 int		print_err(char *msg);
 void	print_use_ext(char *msg);
 void	print_err_ext(char *msg);
+void	init_texture(t_texture *tex);
+void	init_tmp(t_tmp *tmp);
 
 #endif
