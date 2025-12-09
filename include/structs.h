@@ -6,7 +6,7 @@
 /*   By: yesoytur <yesoytur@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 21:00:19 by yesoytur          #+#    #+#             */
-/*   Updated: 2025/12/08 11:44:33 by yesoytur         ###   ########.fr       */
+/*   Updated: 2025/12/09 10:31:24 by yesoytur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,19 @@ typedef enum e_tex_id
 }	t_tex_id;
 
 
-typedef struct s_texture
+typedef struct s_tex
 {
 	char	*tex[4];
 	int		f_color[3];
 	int		c_color[3];
-}	t_texture;
+}	t_tex;
 
 
 typedef struct s_tmp
 {
-	t_texture	tex;
-	char		*f_str;
-	char		*c_str;
+	t_tex	tex;
+	char	*f_str;
+	char	*c_str;
 
 	char	**map;
 	int		width;
@@ -50,7 +50,7 @@ typedef struct s_tmp
 
 typedef struct s_map
 {
-	t_texture	*textures;
+	t_tex	*textures;
 	char		**map;
 	int			width;
 	int			height;

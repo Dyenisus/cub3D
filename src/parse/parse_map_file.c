@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tmp.c                                              :+:      :+:    :+:   */
+/*   parse_map_file.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yesoytur <yesoytur@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/08 10:53:24 by yesoytur          #+#    #+#             */
-/*   Updated: 2025/12/08 11:44:57 by yesoytur         ###   ########.fr       */
+/*   Created: 2025/10/31 20:53:19 by yesoytur          #+#    #+#             */
+/*   Updated: 2025/12/09 11:29:21 by yesoytur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3D.h"
 
-void	init_tmp(t_tmp *tmp)
+t_map	*parse_map_file(char *map_path)
 {
-	init_texture(&tmp->tex);
-	tmp->f_str = NULL;
-	tmp->c_str = NULL;
-	tmp->map = NULL;
-	tmp->width = 0;
-	tmp->height = 0;
-	tmp->player_x = -1;
-	tmp->player_y = -1;
-	tmp->player_dir = 'N';
+	t_tmp		tmp;
+	t_map		*map;
+	char		**lines;
+
+	init_tmp(&tmp);
+	lines = retrive_lines(map_path);
+	if (!lines || !*lines)
+	{
+		print_err("Invalid Map");
+		free_2d(lines);
+		return (NULL);
+	}
+	parse_header(tmp);
+	parse_map(tmp);
 }

@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_map.c                                        :+:      :+:    :+:   */
+/*   retrive_lines.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yesoytur <yesoytur@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/31 20:53:19 by yesoytur          #+#    #+#             */
-/*   Updated: 2025/12/08 12:46:01 by yesoytur         ###   ########.fr       */
+/*   Created: 2025/12/09 10:20:04 by yesoytur          #+#    #+#             */
+/*   Updated: 2025/12/09 11:06:19 by yesoytur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3D.h"
 
-static char	**retrive_lines(char *map_path);
+static char	**append_line(char **arr, char *line, int count);
+static char	**read_gnl(int fd);
 
-t_map	*parse_map(char *map_path)
+char	**retrive_lines(char *map_path)
 {
-	t_tmp		tmp;
-	t_map		*map;
-	char		**lines; /* [[NO][SO][WE][EA][F][C]] */
+	int		fd;
+	char	**lines;
 
-	init_tmp(&tmp);
-	lines = retrive_lines(map_path);
-	if (!lines || !*lines)
-	{
-		print_err("Invalid Map");
-		free_2d(lines);
+	fd = open(map_path, O_RDONLY);
+	if (fd < 0)
 		return (NULL);
-	}
+	lines = read_gnl(fd);
+	close(fd);
+	return (lines);
 }
 
 static char	**append_line(char **arr, char *line, int count)
@@ -76,15 +74,3 @@ static char	**read_gnl(int fd)
 	}
 }
 
-static char	**retrive_lines(char *map_path)
-{
-	int		fd;
-	char	**lines;
-
-	fd = open(map_path, O_RDONLY);
-	if (fd < 0)
-		return (NULL);
-	lines = read_gnl(fd);
-	close(fd);
-	return (lines);
-}

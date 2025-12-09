@@ -6,7 +6,7 @@
 /*   By: yesoytur <yesoytur@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 15:46:34 by yesoytur          #+#    #+#             */
-/*   Updated: 2025/12/08 11:40:10 by yesoytur         ###   ########.fr       */
+/*   Updated: 2025/12/09 11:11:23 by yesoytur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,11 @@ void	initial_checks(int ac, char **av);
 int		print_err(char *msg);
 void	print_use_ext(char *msg);
 void	print_err_ext(char *msg);
-void	init_texture(t_texture *tex);
+void	init_tex(t_tex *tex);
 void	init_tmp(t_tmp *tmp);
+char	**retrive_lines(char *map_path);
+
+
+t_map	*parse_map_file(char *map_path);
 
 #endif
