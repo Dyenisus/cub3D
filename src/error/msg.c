@@ -6,11 +6,11 @@
 /*   By: yesoytur <yesoytur@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 16:05:06 by yesoytur          #+#    #+#             */
-/*   Updated: 2025/12/08 11:12:55 by yesoytur         ###   ########.fr       */
+/*   Updated: 2026/01/03 12:59:27 by yesoytur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3D.h"
+#include "../../include/cub3D.h"
 
 int	print_err(char *msg)
 {

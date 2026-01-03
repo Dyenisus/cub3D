@@ -6,18 +6,18 @@
 /*   By: yesoytur <yesoytur@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 16:00:53 by yesoytur          #+#    #+#             */
-/*   Updated: 2025/12/09 10:19:20 by yesoytur         ###   ########.fr       */
+/*   Updated: 2026/01/03 13:08:02 by yesoytur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3D.h"
+#include "../../include/cub3D.h"
 
 static void	is_file_readable(const char *map_str);
 
-void	initial_checks(int	ac, char **av)
+void	initial_validations(int	ac, char **av)
 {
-	char 	*map_str;
 	size_t	len;
+	char 	*map_str;
 	char	*exten;
 
 	map_str = av[1];
@@ -36,9 +36,9 @@ void	initial_checks(int	ac, char **av)
 
 static void	is_file_readable(const char *map_str)
 {
+	ssize_t	ret;
 	int		fd;
 	char	buf;
-	ssize_t	ret;
 
 	fd = open(map_str, O_RDONLY);
 	if (fd < 0)
@@ -55,3 +55,4 @@ static void	is_file_readable(const char *map_str)
 		print_err_ext("Empty map");
 }
 
+// Validate ac count, is av exist, is av extension correct, is av a secret file, is av opanable file and is av a directory.

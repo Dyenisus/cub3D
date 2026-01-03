@@ -6,7 +6,7 @@
 /*   By: yesoytur <yesoytur@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 21:00:19 by yesoytur          #+#    #+#             */
-/*   Updated: 2025/12/09 10:31:24 by yesoytur         ###   ########.fr       */
+/*   Updated: 2026/01/03 13:17:36 by yesoytur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ typedef struct s_tmp
 
 typedef struct s_map
 {
-	t_tex	*textures;
+	t_tex		*textures;
 	char		**map;
 	int			width;
 	int			height;
