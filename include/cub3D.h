@@ -6,7 +6,7 @@
 /*   By: yesoytur <yesoytur@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 15:46:34 by yesoytur          #+#    #+#             */
-/*   Updated: 2026/01/03 13:02:51 by yesoytur         ###   ########.fr       */
+/*   Updated: 2026/01/04 17:32:00 by yesoytur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,10 @@ void	free_tmp_allocs(t_tmp *tmp);
 void	init_tex(t_tex *tex);
 void	init_tmp(t_tmp *tmp);
 char	**retrive_lines(char *map_path);
+void	ft_skipspace(char *line, int *index);
+int		ft_isdirection(char *line, int index, int *flag);
+int		ft_is_f_or_c(char *line, int index, int *flag);
+int		validate_parse_flag(int *flag);
 
 t_map	*tmp_to_map(t_tmp *tmp);
 t_map	*parse_map_file(char *map_path);

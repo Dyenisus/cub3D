@@ -6,7 +6,7 @@
 /*   By: yesoytur <yesoytur@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 10:20:04 by yesoytur          #+#    #+#             */
-/*   Updated: 2026/01/03 12:59:16 by yesoytur         ###   ########.fr       */
+/*   Updated: 2026/01/04 17:11:23 by yesoytur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,29 +26,6 @@ char	**retrive_lines(char *map_path)
 	lines = read_gnl(fd);
 	close(fd);
 	return (lines);
-}
-
-static char	**append_line(char **arr, char *line, int count)
-{
-	char	**new_arr;
-	int		i;
-
-	new_arr = malloc(sizeof(char *) * (count + 2));
-	if (!new_arr)
-	{
-		free_2d(arr);
-		return (NULL);
-	}
-	i = 0;
-	while (i < count)
-	{
-		new_arr[i] = arr[i];
-		i++;
-	}
-	new_arr[count] = line;
-	new_arr[count + 1] = NULL;
-	free(arr);
-	return (new_arr);
 }
 
 static char	**read_gnl(int fd)
@@ -74,3 +51,25 @@ static char	**read_gnl(int fd)
 	}
 }
 
+static char	**append_line(char **arr, char *line, int count)
+{
+	char	**new_arr;
+	int		i;
+
+	new_arr = malloc(sizeof(char *) * (count + 2));
+	if (!new_arr)
+	{
+		free_2d(arr);
+		return (NULL);
+	}
+	i = 0;
+	while (i < count)
+	{
+		new_arr[i] = arr[i];
+		i++;
+	}
+	new_arr[count] = line;
+	new_arr[count + 1] = NULL;
+	free(arr);
+	return (new_arr);
+}
