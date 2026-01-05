@@ -6,7 +6,7 @@
 /*   By: yesoytur <yesoytur@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 21:00:19 by yesoytur          #+#    #+#             */
-/*   Updated: 2026/01/03 20:51:55 by yesoytur         ###   ########.fr       */
+/*   Updated: 2026/01/05 12:20:20 by yesoytur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 typedef enum e_tex_id
 {
+	Unknown = -1,
 	NO = 0,
 	SO = 1,
 	WE = 2,
