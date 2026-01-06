@@ -6,7 +6,7 @@
 /*   By: yesoytur <yesoytur@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 13:20:11 by yesoytur          #+#    #+#             */
-/*   Updated: 2025/10/07 19:55:54 by yesoytur         ###   ########.fr       */
+/*   Updated: 2026/01/06 10:07:17 by yesoytur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (!last_s1)
 		return (NULL);
 	ft_memcpy(last_s1, (char *)s1 + lindex, rindex - lindex);
+	last_s1[rindex - lindex] = '\0';
 	return (last_s1);
 }
