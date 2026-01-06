@@ -6,7 +6,7 @@
 /*   By: yesoytur <yesoytur@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 11:02:47 by yesoytur          #+#    #+#             */
-/*   Updated: 2026/01/06 11:33:21 by yesoytur         ###   ########.fr       */
+/*   Updated: 2026/01/06 14:09:06 by yesoytur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,54 @@
 
 int	validate_indentifier(char *line, int i)
 {
-	if (ft_strncmp(line + i, "NO", 2))
+	if (ft_strncmp(line + i, "NO", 2) == 0)
 		return (NO);
-	if (ft_strncmp(line + i, "SO", 2))
+	if (ft_strncmp(line + i, "SO", 2) == 0)
 		return (SO);
-	if (ft_strncmp(line + i, "WE", 2))
+	if (ft_strncmp(line + i, "WE", 2) == 0)
 		return (WE);
-	if (ft_strncmp(line + i, "EA", 2))
+	if (ft_strncmp(line + i, "EA", 2) == 0)
 		return (EA);
-	if (ft_strncmp(line + i, "F", 2))
+	if (ft_strncmp(line + i, "F", 2) == 0)
 		return (F);
-	if (ft_strncmp(line + i, "C", 2))
+	if (ft_strncmp(line + i, "C", 2) == 0)
 		return (C);
 	else
 		return (Unknown);
 }
 
-int	is_reached_map(line, i, m_flag)
+int	is_header_done(int *h_flag)
 {
-	if (condition)
+	int	i;
+
+	i = 0;
+	while (i < 6)
 	{
-		/* code */
+		if (h_flag[i] != 1)
+			return (1);
+		i++;
 	}
-	;
+	return (0);
+}
+
+int	is_reached_map(char *line, int i, int *h_flag, int  *m_flag)
+{
+	if (is_header_done(h_flag))
+		return (print_err("Invalid header indentifiers")); 
+	*m_flag = 1;
+	return (0);
+}
+
+int	is_header_duplicated(int *h_flag)
+{
+	int	i;
+
+	i = 0;
+	while (i < 6)
+	{
+		if (h_flag[i] > 1)
+			return (1);
+		i++;
+	}
+	return (0);
 }

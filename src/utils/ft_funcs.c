@@ -6,7 +6,7 @@
 /*   By: yesoytur <yesoytur@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 17:12:31 by yesoytur          #+#    #+#             */
-/*   Updated: 2026/01/06 11:03:48 by yesoytur         ###   ########.fr       */
+/*   Updated: 2026/01/06 13:13:16 by yesoytur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,10 @@ void	ft_skipspace(char *line, int *i)
 			return ;
 		}
 	}
+}
+
+void	ft_skiptilleol(char *line, int *i)
+{
+	while (line[*i])
+		(*i)++;
 }
