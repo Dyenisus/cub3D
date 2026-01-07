@@ -6,7 +6,7 @@
 /*   By: yesoytur <yesoytur@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 11:02:47 by yesoytur          #+#    #+#             */
-/*   Updated: 2026/01/06 14:09:06 by yesoytur         ###   ########.fr       */
+/*   Updated: 2026/01/07 10:26:03 by yesoytur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,18 +38,10 @@ int	is_header_done(int *h_flag)
 	while (i < 6)
 	{
 		if (h_flag[i] != 1)
-			return (1);
+			return (0);
 		i++;
 	}
-	return (0);
-}
-
-int	is_reached_map(char *line, int i, int *h_flag, int  *m_flag)
-{
-	if (is_header_done(h_flag))
-		return (print_err("Invalid header indentifiers")); 
-	*m_flag = 1;
-	return (0);
+	return (1);
 }
 
 int	is_header_duplicated(int *h_flag)
@@ -60,8 +52,8 @@ int	is_header_duplicated(int *h_flag)
 	while (i < 6)
 	{
 		if (h_flag[i] > 1)
-			return (1);
+			return (0);
 		i++;
 	}
-	return (0);
+	return (1);
 }

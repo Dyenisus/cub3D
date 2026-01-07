@@ -6,7 +6,7 @@
 /*   By: yesoytur <yesoytur@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 20:53:19 by yesoytur          #+#    #+#             */
-/*   Updated: 2026/01/06 10:17:32 by yesoytur         ###   ########.fr       */
+/*   Updated: 2026/01/07 09:54:51 by yesoytur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,15 @@ static int	parent_parse(char **lines, t_tmp *tmp)
 	int	i;
 
 	i = 0;
-	if (parse_header(lines, &i, tmp))
+	if (!parse_header(lines, &i, tmp))
 	{
 		return (print_err("Invalid header"));
 	}
-	if (parse_map(lines, i, tmp))
+	if (!validate_header_to_map(lines, &i))
+	{
+		/* code */
+	}
+	if (!parse_map(lines, i, tmp))
 	{
 		return (print_err("Invalid map content"));
 	}

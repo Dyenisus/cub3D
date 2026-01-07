@@ -6,7 +6,7 @@
 /*   By: yesoytur <yesoytur@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 15:46:34 by yesoytur          #+#    #+#             */
-/*   Updated: 2026/01/06 13:31:59 by yesoytur         ###   ########.fr       */
+/*   Updated: 2026/01/07 10:26:10 by yesoytur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@ int		ft_isspace(int c);
 void	ft_skipspace(char *line, int *i);
 int		validate_indentifier(char *line, int i);
 int		is_header_done(int *flag);
-int		is_reached_map(char *line, int i, int *h_flag, int  *m_flag);
-void	ft_skiptilleol(char *line, int *i);
 int		is_header_duplicated(int *h_flag);
 
 t_map	*tmp_to_map(t_tmp *tmp);
