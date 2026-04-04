@@ -12,6 +12,21 @@
 
 #include "get_next_line.h"
 
+static char	*gnl_free_all(char **buf, char *ret)
+{
+	free(ret);
+	free(*buf);
+	*buf = NULL;
+	return (NULL);
+}
+
+static char	*gnl_eof_return(char **buf, char *ret)
+{
+	free(*buf);
+	*buf = NULL;
+	return (ret);
+}
+
 static char	*gnl_main_loop(int fd, char **buf, char *ret)
 {
 	char		*nl;
@@ -26,9 +41,9 @@ static char	*gnl_main_loop(int fd, char **buf, char *ret)
 				return (NULL);
 			read_ret = read(fd, *buf, BUFFER_SIZE);
 			if (read_ret < 0)
-				return (free(ret), NULL);
+				return (gnl_free_all(buf, ret));
 			if (read_ret == 0)
-				return (**buf = '\0', ret);
+				return (gnl_eof_return(buf, ret));
 			(*buf)[read_ret] = '\0';
 		}
 		else
@@ -48,7 +63,7 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	if (!buf || !*buf)
+	if (!buf)
 	{
 		buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 		if (!buf)
