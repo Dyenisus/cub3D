@@ -1,22 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   print_err.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yesoytur <yesoytur@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/04 13:06:07 by yesoytur          #+#    #+#             */
-/*   Updated: 2026/04/04 19:55:20 by yesoytur         ###   ########.fr       */
+/*   Created: 2026/04/04 19:15:21 by yesoytur          #+#    #+#             */
+/*   Updated: 2026/04/04 19:42:49 by yesoytur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#include "../../include/cub3d.h"
 
-#include "include.h"
-
-int		print_error(char *message);
-int		is_invalid_input(int ac, char *path);
-
-
-#endif
+int	print_error(char *message)
+{
+	ft_printf("%s\n", message);
+	return (EXIT_FAILURE);
+}
