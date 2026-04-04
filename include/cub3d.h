@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   structs.h                                          :+:      :+:    :+:   */
+/*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yesoytur <yesoytur@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/04 13:05:54 by yesoytur          #+#    #+#             */
-/*   Updated: 2026/04/04 13:07:43 by yesoytur         ###   ########.fr       */
+/*   Created: 2026/04/04 13:06:07 by yesoytur          #+#    #+#             */
+/*   Updated: 2026/04/04 13:07:07 by yesoytur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRUCTS_H
-# define STRUCTS_H
+#ifndef CUB3D_H
+# define CUB3D_H
 
-
+#include "include.h"
 
 #endif
