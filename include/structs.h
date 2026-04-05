@@ -6,7 +6,7 @@
 /*   By: yesoytur <yesoytur@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/04 13:05:54 by yesoytur          #+#    #+#             */
-/*   Updated: 2026/04/04 19:02:30 by yesoytur         ###   ########.fr       */
+/*   Updated: 2026/04/04 22:21:52 by yesoytur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,9 @@ typedef struct s_map
 typedef struct s_parser
 {
 	t_map	map;
+	char	**lines;
+	int		line_count;
+	int		capacity;
 	int		has_north_texture;
 	int		has_south_texture;
 	int		has_west_texture;
