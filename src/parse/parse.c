@@ -6,11 +6,17 @@
 /*   By: yesoytur <yesoytur@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/04 13:17:54 by yesoytur          #+#    #+#             */
-/*   Updated: 2026/04/05 16:05:57 by yesoytur         ###   ########.fr       */
+/*   Updated: 2026/04/05 17:04:55 by yesoytur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
+
+static t_map	*parse_fail(t_parser *parser)
+{
+	free_parser(parser);
+	return (NULL);
+}
 
 t_map	*parse(char *path)
 {
