@@ -6,13 +6,13 @@
 /*   By: yesoytur <yesoytur@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/05 17:04:19 by yesoytur          #+#    #+#             */
-/*   Updated: 2026/04/05 17:12:58 by yesoytur         ###   ########.fr       */
+/*   Updated: 2026/04/06 19:37:07 by yesoytur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
 
-static void	free_2d_array(char	**arr)
+void	free_2d_array(char	**arr)
 {
 	int	i;
 
