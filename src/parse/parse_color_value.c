@@ -6,11 +6,16 @@
 /*   By: yesoytur <yesoytur@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/05 23:13:27 by yesoytur          #+#    #+#             */
-/*   Updated: 2026/04/06 20:34:30 by yesoytur         ###   ########.fr       */
+/*   Updated: 2026/04/07 22:51:23 by yesoytur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
+
+static void	free_parts(char **parts)
+{
+	free_2d_array(parts);
+}
 
 static int	parse_component(char *raw, int *dst)
 {
@@ -76,15 +81,15 @@ int	parse_color_value(char *value, t_color *color)
 		return (print_error("Malloc failed"));
 	if (count_parts(parts) != 3)
 	{
-		free_2d_array(parts);
+		free_parts(parts);
 		return (print_error("Invalid color format"));
 	}
 	if (parse_rgb(parts, color) == EXIT_FAILURE)
 	{
-		free_2d_array(parts);
+		free_parts(parts);
 		return (EXIT_FAILURE);
 	}
-	free_2d_array(parts);
+	free_parts(parts);
 	color->value = (color->red << 16) | (color->green << 8) | color->blue;
 	return (EXIT_SUCCESS);
 }
