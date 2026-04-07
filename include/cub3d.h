@@ -6,7 +6,7 @@
 /*   By: yesoytur <yesoytur@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/04 13:06:07 by yesoytur          #+#    #+#             */
-/*   Updated: 2026/04/06 20:58:33 by yesoytur         ###   ########.fr       */
+/*   Updated: 2026/04/07 22:41:13 by yesoytur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,10 @@ int		parse_element_line(t_parser *parser, char *line);
 int		has_only_digits(char *line);
 int		parse_color_value(char *value, t_color *color);
 int		scan_line(t_parser *parser, int i, int *map_start, int *map_ended);
-
+int		parse_map(t_parser *parser);
+int		validate_textures(t_map *map);
+int		validate_cells(t_parser *parser);
+int		validate_map_closed(t_parser *parser);
+int		validate(t_parser *parser);
 
 #endif
