@@ -1,26 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   game.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yesoytur <yesoytur@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/04 13:17:51 by yesoytur          #+#    #+#             */
-/*   Updated: 2026/04/08 20:52:41 by yesoytur         ###   ########.fr       */
+/*   Created: 2026/04/08 20:50:54 by yesoytur          #+#    #+#             */
+/*   Updated: 2026/04/08 20:50:55 by yesoytur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/cub3d.h"
-
-int	main(int ac, char **av)
-{
-	if (is_invalid_input(ac, av[1]))
-	{
-		return (EXIT_FAILURE);
-	}
-	if (start_game(parse(av[1])) == EXIT_FAILURE)
-	{
-		return (EXIT_FAILURE);
-	}
-	return (EXIT_SUCCESS);
-}

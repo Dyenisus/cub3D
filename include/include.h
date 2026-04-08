@@ -6,7 +6,7 @@
 /*   By: yesoytur <yesoytur@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/04 13:05:59 by yesoytur          #+#    #+#             */
-/*   Updated: 2026/04/04 13:08:36 by yesoytur         ###   ########.fr       */
+/*   Updated: 2026/04/08 20:58:34 by yesoytur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,5 @@
 # include "structs.h"
 # include "../lib/libft/libft.h"
 # include "../lib/minilibx-linux/mlx.h"
-# include "../lib/minilibx-linux/mlx_int.h"
 
 #endif

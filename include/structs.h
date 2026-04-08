@@ -6,12 +6,15 @@
 /*   By: yesoytur <yesoytur@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/04 13:05:54 by yesoytur          #+#    #+#             */
-/*   Updated: 2026/04/04 22:21:52 by yesoytur         ###   ########.fr       */
+/*   Updated: 2026/04/08 20:43:48 by yesoytur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTS_H
 # define STRUCTS_H
+
+# define WIN_WIDTH 1280
+# define WIN_HEIGHT 720
 
 typedef struct s_color
 {
@@ -62,5 +65,44 @@ typedef struct s_parser
 	int		has_ceiling_color;
 	int		player_count;
 }	t_parser;
+
+typedef struct s_img
+{
+	void	*ptr;
+	char	*addr;
+	int		bpp;
+	int		line_len;
+	int		endian;
+	int		width;
+	int		height;
+}	t_img;
+
+typedef struct s_camera
+{
+	double	x;
+	double	y;
+	double	dir_x;
+	double	dir_y;
+	double	plane_x;
+	double	plane_y;
+}	t_camera;
+
+typedef struct s_tex
+{
+	t_img	north;
+	t_img	south;
+	t_img	west;
+	t_img	east;
+}	t_tex;
+
+typedef struct s_game
+{
+	void		*mlx;
+	void		*win;
+	t_map		*map;
+	t_img		frame;
+	t_tex		textures;
+	t_camera	camera;
+}	t_game;
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: yesoytur <yesoytur@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/04 13:17:54 by yesoytur          #+#    #+#             */
-/*   Updated: 2026/04/08 19:54:21 by yesoytur         ###   ########.fr       */
+/*   Updated: 2026/04/08 19:56:35 by yesoytur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static t_map	*parse_fail(t_parser *parser)
 	return (NULL);
 }
 
-static t_map *buidl_map_from_parser(t_parser *parser)
+static t_map *build_map_from_parser(t_parser *parser)
 {
 	t_map	*map;
 
