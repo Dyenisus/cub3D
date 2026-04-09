@@ -6,7 +6,7 @@
 /*   By: yesoytur <yesoytur@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/04 13:05:54 by yesoytur          #+#    #+#             */
-/*   Updated: 2026/04/08 20:43:48 by yesoytur         ###   ########.fr       */
+/*   Updated: 2026/04/09 22:30:33 by yesoytur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 # define WIN_WIDTH 1280
 # define WIN_HEIGHT 720
+
+# define MOVE_SPEED 3.0
+# define ROT_SPEED 2.0
+# define MOUSE_SENSITIVITY 0.002
 
 typedef struct s_color
 {
@@ -95,6 +99,19 @@ typedef struct s_tex
 	t_img	east;
 }	t_tex;
 
+typedef struct s_input
+{
+	int	move_forward;
+	int	move_backward;
+	int	move_left;
+	int	move_right;
+	int	turn_left;
+	int	turn_right;
+	int	mouse_enabled;
+	int	has_last_mouse_x;
+	int	last_mouse_x;
+}	t_input;
+
 typedef struct s_game
 {
 	void		*mlx;
@@ -103,6 +120,8 @@ typedef struct s_game
 	t_img		frame;
 	t_tex		textures;
 	t_camera	camera;
+	t_input		input;
+	long		last_frame_time;
 }	t_game;
 
 #endif

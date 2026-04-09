@@ -6,7 +6,7 @@
 /*   By: yesoytur <yesoytur@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/08 19:59:41 by yesoytur          #+#    #+#             */
-/*   Updated: 2026/04/09 21:12:16 by yesoytur         ###   ########.fr       */
+/*   Updated: 2026/04/09 22:31:33 by yesoytur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,19 @@ static void	init_img(t_img *img)
 	img->endian = 0;
 	img->width = 0;
 	img->height = 0;
+}
+
+static void	init_input(t_input *input)
+{
+	input->move_forward = 0;
+	input->move_backward = 0;
+	input->move_left = 0;
+	input->move_right = 0;
+	input->turn_left = 0;
+	input->turn_right = 0;
+	input->mouse_enabled = 0;
+	input->has_last_mouse_x = 0;
+	input->last_mouse_x = 0;
 }
 
 void	init_game_struct(t_game *game, t_map *map)
@@ -39,6 +52,8 @@ void	init_game_struct(t_game *game, t_map *map)
 	game->camera.dir_y = 0.0;
 	game->camera.plane_x = 0.0;
 	game->camera.plane_y = 0.0;
+	init_input(&game->input);
+	game->last_frame_time = 0;
 }
 
 int	init_frame(t_game *game)

@@ -6,7 +6,7 @@
 /*   By: yesoytur <yesoytur@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/04 13:06:07 by yesoytur          #+#    #+#             */
-/*   Updated: 2026/04/09 21:35:03 by yesoytur         ###   ########.fr       */
+/*   Updated: 2026/04/09 23:16:04 by yesoytur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,10 @@ void	init_game_struct(t_game *game, t_map *map);
 int		init_frame(t_game *game);
 void	init_camera(t_game *game);
 int		init_textures(t_game *game);
+int		register_hooks(t_game *game);
+int		game_loop(t_game *game);
+int		handle_mouse_move(int x, int y, t_game *game);
+int		handle_mouse_press(int button, int x, int y, t_game *game);
 int   	start_game(t_map *map);
 
 #endif

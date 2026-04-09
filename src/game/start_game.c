@@ -6,7 +6,7 @@
 /*   By: yesoytur <yesoytur@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/08 20:50:54 by yesoytur          #+#    #+#             */
-/*   Updated: 2026/04/09 21:22:37 by yesoytur         ###   ########.fr       */
+/*   Updated: 2026/04/09 22:32:23 by yesoytur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int	start_game(t_map *map)
 		return (EXIT_FAILURE);
 	}
 	init_camera(&game);
+	register_hooks(&game);
 	mlx_loop(game.mlx);
 	cleanup_game(&game);
 	return (EXIT_SUCCESS);
