@@ -6,7 +6,7 @@
 /*   By: yesoytur <yesoytur@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/04 13:06:07 by yesoytur          #+#    #+#             */
-/*   Updated: 2026/04/14 13:51:08 by yesoytur         ###   ########.fr       */
+/*   Updated: 2026/04/14 21:47:33 by yesoytur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int		init_frame(t_game *game);
 void	init_camera(t_game *game);
 int		init_textures(t_game *game);
 int		register_hooks(t_game *game);
+void	rotate_camera(t_game *game, double angle);
 int		game_loop(t_game *game);
 int		handle_mouse_move(int x, int y, t_game *game);
 int		handle_mouse_press(int button, int x, int y, t_game *game);

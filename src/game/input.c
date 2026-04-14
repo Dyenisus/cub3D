@@ -6,7 +6,7 @@
 /*   By: yesoytur <yesoytur@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 22:40:02 by yesoytur          #+#    #+#             */
-/*   Updated: 2026/04/14 13:52:26 by yesoytur         ###   ########.fr       */
+/*   Updated: 2026/04/14 21:47:03 by yesoytur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static void	move_camera(t_game *game, double move_x, double move_y)
 	}
 }
 
-static void	rotate_camera(t_game *game, double angle)
+void	rotate_camera(t_game *game, double angle)
 {
 	double	old_dir_x;
 	double	old_plane_x;

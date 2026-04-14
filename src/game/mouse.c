@@ -6,28 +6,11 @@
 /*   By: yesoytur <yesoytur@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 23:09:46 by yesoytur          #+#    #+#             */
-/*   Updated: 2026/04/14 13:15:36 by yesoytur         ###   ########.fr       */
+/*   Updated: 2026/04/14 21:47:59 by yesoytur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
-
-static void	rotate_camera(t_game *game, double angle)
-{
-	double	old_dir_x;
-	double	old_plane_x;
-
-	old_dir_x = game->camera.dir_x;
-	old_plane_x = game->camera.plane_x;
-	game->camera.dir_x = game->camera.dir_x * cos(angle)
-			- game->camera.dir_y * sin(angle);
-	game->camera.dir_y = old_dir_x * sin(angle)
-			+ game->camera.dir_y * cos(angle);
-	game->camera.plane_x = game->camera.plane_x * cos(angle)
-			- game->camera.plane_y * sin(angle);
-	game->camera.plane_y = old_plane_x * sin(angle)
-			+ game->camera.plane_y * cos(angle);
-}
 
 int	handle_mouse_press(int button, int x, int y, t_game *game)
 {
