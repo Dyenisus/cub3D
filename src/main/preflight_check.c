@@ -6,7 +6,7 @@
 /*   By: yesoytur <yesoytur@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/04 19:21:45 by yesoytur          #+#    #+#             */
-/*   Updated: 2026/04/14 22:13:08 by yesoytur         ###   ########.fr       */
+/*   Updated: 2026/04/14 22:31:09 by yesoytur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,26 @@ static int	extension_is_not_cub(char *path)
 	return (EXIT_SUCCESS);
 }
 
+static int	is_not_readable_file(char *path)
+{
+	int		fd;
+	int		bytes;
+	char	c;
+
+	fd = open(path, O_RDONLY);
+	if (fd < 0)
+	{
+		return (EXIT_FAILURE);
+	}
+	bytes = read(fd, &c, 1);
+	close(fd);
+	if (bytes <= 0)
+	{
+		return (EXIT_FAILURE);
+	}
+	return (EXIT_SUCCESS);
+}
+
 int	is_invalid_input(int ac, char *path)
 {
 	if (ac != 2)
@@ -49,6 +69,10 @@ int	is_invalid_input(int ac, char *path)
 	if (extension_is_not_cub(path))
 	{
 		return (print_error("Invalid map extension"));
+	}
+	if (is_not_readable_file(path))
+	{
+		return (print_error("Invalid map file"));
 	}
 	return (EXIT_SUCCESS);
 }
