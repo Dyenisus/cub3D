@@ -6,7 +6,7 @@
 /*   By: yesoytur <yesoytur@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 22:40:02 by yesoytur          #+#    #+#             */
-/*   Updated: 2026/04/09 23:08:26 by yesoytur         ###   ########.fr       */
+/*   Updated: 2026/04/14 13:52:26 by yesoytur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,5 +107,6 @@ int	game_loop(t_game *game)
 	{
 		update_camera(game, delta_time);
 	}
+	render_frame(game);
 	return (0);
 }

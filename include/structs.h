@@ -6,7 +6,7 @@
 /*   By: yesoytur <yesoytur@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/04 13:05:54 by yesoytur          #+#    #+#             */
-/*   Updated: 2026/04/09 22:30:33 by yesoytur         ###   ########.fr       */
+/*   Updated: 2026/04/14 13:45:13 by yesoytur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,5 +123,35 @@ typedef struct s_game
 	t_input		input;
 	long		last_frame_time;
 }	t_game;
+
+typedef struct s_ray
+{
+	double	camera_x;
+	double	ray_dir_x;
+	double	ray_dir_y;
+	double	side_dist_x;
+	double	side_dist_y;
+	double	delta_dist_x;
+	double	delta_dist_y;
+	double	perp_wall_dist;
+	int		map_x;
+	int		map_y;
+	int		step_x;
+	int		step_y;
+	int		side;
+}	t_ray;
+
+typedef struct s_draw
+{
+	t_img	*texture;
+	double	wall_x;
+	double	step;
+	double	tex_pos;
+	int		line_height;
+	int		draw_start;
+	int		draw_end;
+	int		tex_x;
+	int		tex_y;
+}	t_draw;
 
 #endif

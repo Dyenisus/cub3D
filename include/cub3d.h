@@ -6,7 +6,7 @@
 /*   By: yesoytur <yesoytur@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/04 13:06:07 by yesoytur          #+#    #+#             */
-/*   Updated: 2026/04/09 23:16:04 by yesoytur         ###   ########.fr       */
+/*   Updated: 2026/04/14 13:51:08 by yesoytur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,10 @@ int		game_loop(t_game *game);
 int		handle_mouse_move(int x, int y, t_game *game);
 int		handle_mouse_press(int button, int x, int y, t_game *game);
 int   	start_game(t_map *map);
+void	put_img_pixel(t_img *img, int x, int y, int color);
+void	render_frame(t_game *game);
+void	init_ray(t_game *game, t_ray *ray, int x);
+void	cast_ray(t_game *game, t_ray *ray);
+void	draw_wall_column(t_game *game, t_ray *ray, int x);
 
 #endif
