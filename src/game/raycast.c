@@ -6,7 +6,7 @@
 /*   By: yesoytur <yesoytur@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 13:35:13 by yesoytur          #+#    #+#             */
-/*   Updated: 2026/04/14 21:45:34 by yesoytur         ###   ########.fr       */
+/*   Updated: 2026/04/14 22:00:24 by yesoytur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	init_ray(t_game *game, t_ray *ray, int x)
 	init_ray_step(game, ray);
 }
 
-static void	step_ray(t_game *game, t_ray *ray)
+static void	step_ray(t_ray *ray)
 {
 	if (ray->side_dist_x < ray->side_dist_y)
 	{
@@ -86,7 +86,7 @@ void	cast_ray(t_game *game, t_ray *ray)
 	hit = 0;
 	while (!hit)
 	{
-		step_ray(game, ray);
+		step_ray(ray);
 		if (ray->map_x < 0 || ray->map_y < 0
 				|| ray->map_x >= game->map->width
 				|| ray->map_y >= game->map->height)
