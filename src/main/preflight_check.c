@@ -6,7 +6,7 @@
 /*   By: yesoytur <yesoytur@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/04 19:21:45 by yesoytur          #+#    #+#             */
-/*   Updated: 2026/04/04 19:58:59 by yesoytur         ###   ########.fr       */
+/*   Updated: 2026/04/14 22:13:08 by yesoytur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,26 @@
 
 static int	extension_is_not_cub(char *path)
 {
-	int	len;
+	char	*name;
+	int		len;
 
 	if (!path)
-	{
 		return (EXIT_FAILURE);
+	name = ft_strrchr(path, '/');
+	if (name)
+	{
+		name++;
 	}
-	len = ft_strlen(path);
+	else
+	{
+		name = path;
+	}
+	len = ft_strlen(name);
 	if (len < 5)
 	{
 		return (EXIT_FAILURE);
 	}
-	if (ft_strncmp(path + len - 4, ".cub", 4) != 0)
+	if (ft_strncmp(name + len - 4, ".cub", 4) != 0)
 	{
 		return (EXIT_FAILURE);
 	}
