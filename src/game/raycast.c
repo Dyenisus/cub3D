@@ -6,7 +6,7 @@
 /*   By: yesoytur <yesoytur@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 13:35:13 by yesoytur          #+#    #+#             */
-/*   Updated: 2026/04/14 13:43:38 by yesoytur         ###   ########.fr       */
+/*   Updated: 2026/04/14 21:32:17 by yesoytur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,8 @@ static double	ray_delta(double ray_dir)
 	return (fabs(1.0 / ray_dir));
 }
 
-void	init_ray(t_game *game, t_ray *ray, int x)
+static void	init_ray_step(t_game *game, t_ray *ray)
 {
-	ray->camera_x = 2.0 * x / (double)WIN_WIDTH - 1.0;
-	ray->ray_dir_x = game->camera.dir_x
-			+ game->camera.plane_x * ray->camera_x;
-	ray->ray_dir_y = game->camera.dir_y
-			+ game->camera.plane_y * ray->camera_x;
-	ray->map_x = (int)game->camera.x;
-	ray->map_y = (int)game->camera.y;
-	ray->delta_dist_x = ray_delta(ray->ray_dir_x);
-	ray->delta_dist_y = ray_delta(ray->ray_dir_y);
 	if (ray->ray_dir_x < 0.0)
 	{
 		ray->step_x = -1;
@@ -58,6 +49,36 @@ void	init_ray(t_game *game, t_ray *ray, int x)
 	}
 }
 
+void	init_ray(t_game *game, t_ray *ray, int x)
+{
+	ray->camera_x = 2.0 * x / (double)WIN_WIDTH - 1.0;
+	ray->ray_dir_x = game->camera.dir_x
+			+ game->camera.plane_x * ray->camera_x;
+	ray->ray_dir_y = game->camera.dir_y
+			+ game->camera.plane_y * ray->camera_x;
+	ray->map_x = (int)game->camera.x;
+	ray->map_y = (int)game->camera.y;
+	ray->delta_dist_x = ray_delta(ray->ray_dir_x);
+	ray->delta_dist_y = ray_delta(ray->ray_dir_y);
+	init_ray_step(game, ray);
+}
+
+static void	step_ray(t_game *game, t_ray *ray)
+{
+	if (ray->side_dist_x < ray->side_dist_y)
+	{
+		ray->side_dist_x += ray->delta_dist_x;
+		ray->map_x += ray->step_x;
+		ray->side = 0;
+	}
+	else
+	{
+		ray->side_dist_y += ray->delta_dist_y;
+		ray->map_y += ray->step_y;
+		ray->side = 1;
+	}
+}
+
 void	cast_ray(t_game *game, t_ray *ray)
 {
 	int	hit;
@@ -65,18 +86,7 @@ void	cast_ray(t_game *game, t_ray *ray)
 	hit = 0;
 	while (!hit)
 	{
-		if (ray->side_dist_x < ray->side_dist_y)
-		{
-			ray->side_dist_x += ray->delta_dist_x;
-			ray->map_x += ray->step_x;
-			ray->side = 0;
-		}
-		else
-		{
-			ray->side_dist_y += ray->delta_dist_y;
-			ray->map_y += ray->step_y;
-			ray->side = 1;
-		}
+		step_ray(game, ray);
 		if (ray->map_x < 0 || ray->map_y < 0
 				|| ray->map_x >= game->map->width
 				|| ray->map_y >= game->map->height)
